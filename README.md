@@ -1,79 +1,132 @@
-# Simple Search Engine (C++)
+# Mini Search Engine (C++)
 
-A simple command-line search engine built in C++. It indexes words from text files and allows users to search for terms, returning the files where those words appear.
+A simple yet powerful command-line (Gathering the courage to create an interface) search engine built in C++, featuring multi-word search, TF-IDF ranking, and persistent indexing.
+
+---
 
 ## Features
 
-* Inverted index structure (word → list of files)
-* Case-insensitive search
-* Basic punctuation removal
-* Multiple file indexing
-* Interactive search loop
-* Fast lookup using `std::map` and `std::set`
+* Multi-word search (AND logic)
+* TF-IDF based ranking system
+* Persistent index (saved to disk)
+* Fast search using inverted index
+* Text normalization (case-insensitive and punctuation removal)
+* Reindex command to update data
 
-## How to Use
+---
 
-1. Place your text files in the same directory as the program.
-2. In the code, define which files will be indexed:
+## How It Works
 
-   ```cpp
-   engine.indexFile("file1.txt");
-   engine.indexFile("file2.txt");
-   ```
-3. Run the program.
-4. Type a word to search.
-5. The program will display which files contain that word.
-6. Type **exit** to close the program.
+The engine builds an inverted index, mapping each word to the files where it appears, along with its frequency.
 
-## Example
+Search results are ranked using a simplified TF-IDF approach:
+
+* TF (Term Frequency): how many times a word appears in a document
+* IDF (Inverse Document Frequency): gives more importance to rare words
+
+This allows the engine to return more relevant results first, similar to real-world search systems.
+
+---
+
+## Usage
+
+* Search:
+
+```id="7e6n3g"
+hello world
+```
+
+* Reindex:
+
+```id="a0l5cu"
+reindex
+```
+
+* Exit:
+
+```id="g8r9pn"
+exit
+```
+
+---
+
+## Example Output
 
 ```
---- SEARCH ENGINE ---
-
-What do you want to search for? (or type 'exit' to quit): hello
-The word 'hello' it was found in the following files:
-- file1.txt
-- file2.txt
----------------------------------------
+Results for 'hello world':
+- file1.txt (score: 1.82)
+- file2.txt (score: 0.91)
 ```
+
+---
+
+## Technologies
+
+* C++
+* STL (map, set, vector)
+* File I/O
+* Basic Information Retrieval concepts
 
 ---
 
 # Motor de Busca Simples (C++)
 
-Um motor de busca simples em linha de comando desenvolvido em C++. Ele indexa palavras de arquivos de texto e permite que o usuário pesquise termos, retornando os arquivos onde essas palavras aparecem.
+Um motor de busca em linha de comando (criando coragem para fazer uma interface) desenvolvido em C++, com suporte a múltiplas palavras, ranking por relevância (TF-IDF) e persistência de dados.
+
+---
 
 ## Funcionalidades
 
-* Estrutura de índice invertido (palavra → lista de arquivos)
-* Busca sem distinção entre maiúsculas e minúsculas
-* Remoção básica de pontuação
-* Indexação de múltiplos arquivos
-* Loop interativo de busca
-* Busca rápida usando `std::map` e `std::set`
+* Busca por múltiplas palavras (lógica AND)
+* Ranking baseado em TF-IDF
+* Índice persistente (salvo em arquivo)
+* Busca rápida com índice invertido
+* Normalização de texto (sem distinção de maiúsculas/minúsculas)
+* Comando de reindexação
 
-## Como Usar
+---
 
-1. Coloque os arquivos de texto na mesma pasta do programa.
-2. No código, defina quais arquivos serão indexados:
+## Como Funciona
 
-   ```cpp
-   engine.indexFile("file1.txt");
-   engine.indexFile("file2.txt");
-   ```
-3. Execute o programa.
-4. Digite uma palavra para buscar.
-5. O programa mostrará em quais arquivos a palavra foi encontrada.
-6. Digite **exit** para encerrar o programa.
+O sistema constrói um índice invertido, associando cada palavra aos arquivos em que aparece, incluindo sua frequência.
+
+Os resultados são ordenados usando TF-IDF:
+
+* TF: frequência da palavra no documento
+* IDF: importância da palavra baseada em sua raridade
+
+Isso permite retornar resultados mais relevantes primeiro.
+
+---
+
+## Uso
+
+* Buscar:
+
+```id="4vyl9h"
+hello world
+```
+
+* Reindexar:
+
+```id="w3e4nt"
+reindex
+```
+
+* Sair:
+
+```id="c8kzbm"
+exit
+```
+
+---
 
 ## Exemplo
 
+```id="z8e5gk"
+Resultados para 'hello world':
+- file1.txt (score: 1.82)
+- file2.txt (score: 0.91)
 ```
---- SEARCH ENGINE ---
 
-O que você deseja buscar? (ou digite 'exit' para sair): hello
-A palavra 'hello' foi encontrada nos seguintes arquivos:
-- file1.txt
-- file2.txt
----------------------------------------
-```
+---
