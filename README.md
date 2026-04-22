@@ -190,3 +190,7 @@ http://localhost:3000
 - É necessário reindexar após alterar arquivos
 - Caminhos são relativos ao projeto
 - Suporte Unicode é limitado
+
+## Demo
+
+![Demo](assets/IndexLookupDemoGif.gif)
